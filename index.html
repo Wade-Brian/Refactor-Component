@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Card</title>
+    <style>
+        .pricing {
+            width: 300px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            color: green;
+            margin: 10px 0;
+        }
+
+        .features {
+            list-style: none;
+            padding-left: 0;
+            margin: 10px 0;
+        }
+
+        .features li {
+            padding: 6px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            background: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="pricing-container"></div>
+
+    <script>
+        function createPricingCard({ title, price, features, buttonText }) {
+            return `
+      <div class="pricing">
+        <h2 class="title">${title}</h2>
+        <p class="price">${price}</p>
+        <ul class="features">
+          ${features.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+        <button class="btn">${buttonText}</button>
+      </div>
+    `;
+        }
+
+        // Example usage
+        document.getElementById("pricing-container").innerHTML = createPricingCard({
+            title: "Basic Plan",
+            price: "$9.99 / month",
+            features: ["1 GB Storage", "Basic Support", "All Core Features"],
+            buttonText: "Start Trial"
+        });
+    </script>
+
+</body>
+
+</html>
